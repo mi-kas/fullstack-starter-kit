@@ -1,0 +1,43 @@
+{
+  "name": "backend",
+  "version": "0.0.1",
+  "private": true,
+  "description": "JavaScript backend starter kit",
+  "keywords": [
+    "node",
+    "express",
+    "swagger",
+    "mongoose",
+    "babel",
+    "es6"
+  ],
+  "author": "Michael Kaserer <mi.kaserer@gmail.com>",
+  "license": "MIT",
+  "main": "./src/app.js",
+  "dependencies": {
+    "express": "^4.12.3",
+    "mongoose": "^5.6.2",
+    "swagger-express-mw": "^0.7.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/node": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^6.1.4",
+    "nodemon": "^1.19.1",
+    "rimraf": "^2.6.3"
+  },
+  "scripts": {
+    "dev": "NODE_ENV=development nodemon",
+    "prebuild": "rimraf build/",
+    "build": "babel src --out-dir build/src --copy-files && babel config --out-dir build/config --copy-files",
+    "serve": "node build/src/app.js",
+    "start": "npm run build && npm run serve",
+    "test": "NODE_ENV=test mocha --require @babel/register,@babel/polyfill --exit 'test/**/*.js'",
+    "editor": "swagger project edit"
+  }
+}

@@ -1,0 +1,35 @@
+version: '2.3'
+services:
+  backend:
+    build:
+      context: ./backend
+      target: dev
+    env_file:
+      - .env
+    environment:
+      - DB_URI=mongodb://mongodb:27017/app
+    ports:
+      - ${SERVER_PORT}:${SERVER_PORT}
+    volumes:
+      - ./backend/src:/app/src
+      - ./backend/test:/app/test
+      - ./backend/config:/app/config
+    depends_on:
+      - mongodb
+
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     target: dev
+  #   ports:
+  #     - 3000:3000
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - ./frontend/src:/app/src
+  #     - ./frontend/public:/app/public
+
+  mongodb:
+    image: mongo:4.0.8
+    ports:
+      - 27017:27017
