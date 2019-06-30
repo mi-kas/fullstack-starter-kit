@@ -8,7 +8,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios(`${process.env.REACT_APP_API_ENDPOINT}api`);
+      const result = await axios.get(`${process.env.REACT_APP_API_ENDPOINT}api`);
       setHealthStatus(result.data.health);
     };
 
