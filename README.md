@@ -1,4 +1,4 @@
-# JavaScript Full-stack Starter Kit 🚀
+# JavaScript Full-Stack Starter Kit 🚀
 
 An opinionated & minimalist JavaScript full-stack starter kit. Based on popular frameworks such as Node.js, React, MongoDB, Swagger, Babel and Docker.
 
@@ -17,13 +17,14 @@ An opinionated & minimalist JavaScript full-stack starter kit. Based on popular 
 
 ### Run
 
-Clone this repository and run:
+Clone this repository and run the following command for a local dev environment:
 
 ```
 make up
 ```
 
 > This will spin up a database instance running on `localhost:27017`, a backend instance running on `localhost:1337` and a frontend instance running on `localhost:3000`. See `docker-compose.yml` for the detailed setup.
+> You can specify also only a single service via `make up frontend`.
 
 ---
 
