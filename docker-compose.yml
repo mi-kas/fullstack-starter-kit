@@ -17,17 +17,19 @@ services:
     depends_on:
       - mongodb
 
-  # frontend:
-  #   build:
-  #     context: ./frontend
-  #     target: dev
-  #   ports:
-  #     - 3000:3000
-  #   env_file:
-  #     - .env
-  #   volumes:
-  #     - ./frontend/src:/app/src
-  #     - ./frontend/public:/app/public
+  frontend:
+    build:
+      context: ./frontend
+      target: dev
+    env_file:
+      - .env
+    ports:
+      - 3000:3000
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+    depends_on:
+      - backend
 
   mongodb:
     image: mongo:4.0.8
