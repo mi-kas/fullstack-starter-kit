@@ -21,3 +21,9 @@ make up
 ```
 
 Note: This will spin up a database instance running on `localhost:27017`, a backend instance running on `localhost:1337` and a frontend instance running on `localhost:3000`.
+
+To run all test just enter:
+
+```
+make test
+```
