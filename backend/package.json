@@ -36,6 +36,8 @@
     "eslint-config-prettier": "^6.0.0",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-prettier": "^3.1.0",
+    "husky": "^3.0.0",
+    "lint-staged": "^9.1.0",
     "mocha": "^6.1.4",
     "nodemon": "^1.19.1",
     "prettier-eslint-cli": "^5.0.0",
@@ -51,5 +53,21 @@
     "editor": "swagger project edit",
     "lint": "eslint --fix src test",
     "format": "prettier-eslint '{src,test}/**/*.{js,json}' --write"
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "eslint --fix",
+      "prettier-eslint --write",
+      "git add"
+    ],
+    "*.{md,json}": [
+      "prettier-eslint --write",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
