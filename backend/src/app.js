@@ -6,16 +6,16 @@ import config from 'config';
 /**
  * Configures and connects mongoose to the mongoDB instance
  */
-const _configureDB = () => {
-  mongoose.connection.on('connected', function(err) {
+const configureDB = () => {
+  mongoose.connection.on('connected', () => {
     console.log(`Mongoose successfully connected to: ${config.db.uri}`);
   });
 
-  mongoose.connection.on('disconnected', function() {
+  mongoose.connection.on('disconnected', () => {
     console.log(`Mongoose disconnected from: ${config.db.uri}`);
   });
 
-  mongoose.connection.on('error', function(err) {
+  mongoose.connection.on('error', err => {
     console.log(`Mongoose connection error: ${err}`);
   });
 
@@ -29,7 +29,7 @@ const _configureDB = () => {
 
 const app = express();
 
-SwaggerExpress.create(config.swagger, function(err, swaggerExpress) {
+SwaggerExpress.create(config.swagger, (err, swaggerExpress) => {
   if (err) {
     throw err;
   }
@@ -37,13 +37,11 @@ SwaggerExpress.create(config.swagger, function(err, swaggerExpress) {
   // install middleware
   swaggerExpress.register(app);
   // connect db
-  _configureDB();
+  configureDB();
 
   app.listen(config.server.port, config.server.host, () => {
     console.log(
-      `API server listening on: http://${config.server.host}:${config.server.port}${
-        config.swagger.basePath
-      }`
+      `API server listening on: http://${config.server.host}:${config.server.port}${config.swagger.basePath}`,
     );
   });
 });
