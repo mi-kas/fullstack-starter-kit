@@ -10,7 +10,8 @@ An opinionated & minimalist JavaScript full-stack starter kit. Based on popular 
 - React frontend
 - Next generation JavaScript agnostic setup with Babel
 - Multi-container Docker setup
-- Easy Docker orchestration with handy Makefile commands
+- Handy Makefile commands for easy Docker orchestration
+- Code style & code quality enforcement with ESLint & Prettier
 - Mono-repo approach
 
 ## Usage
