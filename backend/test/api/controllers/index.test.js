@@ -2,8 +2,8 @@ import mongoose from 'mongoose';
 
 // Clear database before each test case
 before(done => {
-  for (var collection in mongoose.connection.collections) {
-    mongoose.connection.collections[collection].remove(function() {});
-  }
+  Object.keys(mongoose.connection.collections).map(collection =>
+    mongoose.connection.collections[collection].remove(() => {}),
+  );
   done();
 });

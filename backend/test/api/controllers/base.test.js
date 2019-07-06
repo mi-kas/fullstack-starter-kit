@@ -4,7 +4,7 @@ import config from 'config';
 import app from '../../../src/app';
 
 chai.use(chaiHttp);
-const expect = chai.expect;
+const { expect } = chai;
 
 let server;
 // eslint-disable-next-line no-undef
