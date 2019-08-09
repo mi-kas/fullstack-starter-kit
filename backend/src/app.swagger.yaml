@@ -81,8 +81,5 @@ definitions:
     properties:
       message:
         type: string
-      success:
-        type: boolean
     required:
-      - success
       - message
