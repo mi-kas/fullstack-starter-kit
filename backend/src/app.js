@@ -55,11 +55,15 @@ class App {
    * Starts the express app with the settings defined in 'config.server'
    */
   start() {
-    this.app.listen(config.server.port, config.server.host, () => {
-      console.log(
-        `API server listening on: http://${config.server.host}:${config.server.port}${config.swagger.basePath}`
-      );
-    });
+    // Only listen when started directly and not in tests
+    // See: http://www.marcusoft.net/2015/10/eaddrinuse-when-watching-tests-with-mocha-and-supertest.html
+    if (!module.parent) {
+      this.app.listen(config.server.port, config.server.host, () => {
+        console.log(
+          `API server listening on: http://${config.server.host}:${config.server.port}${config.swagger.basePath}`
+        );
+      });
+    }
   }
 }
 
