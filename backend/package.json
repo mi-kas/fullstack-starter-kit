@@ -17,7 +17,7 @@
   "dependencies": {
     "config": "^3.1.0",
     "express": "^4.12.3",
-    "mongoose": "^5.6.2",
+    "mongoose": "^5.7.5",
     "swagger-express-mw": "^0.7.0"
   },
   "devDependencies": {
